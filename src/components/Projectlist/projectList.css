@@ -17,7 +17,9 @@
 
 .pl-desc {
     font-size: 28px;
+    font-weight: 600;
     margin: 20px 0px;
+    color: #383CC1;
 }
 
 .pl-list {

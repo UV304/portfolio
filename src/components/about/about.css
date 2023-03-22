@@ -37,3 +37,16 @@
     height: 100%;
     object-fit: cover;
 }
+
+.a-intro {
+    font-size: 56px;
+}
+
+.a-title {
+    font-size: 42px;
+    color: #383CC1;
+}
+
+.a-list {
+    font-size: 24px;
+}
