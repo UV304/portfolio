@@ -42,11 +42,44 @@
     font-size: 56px;
 }
 
+.a-text {
+    font-size: 20px;
+    padding-right: 20px;
+    text-align: justify;
+    padding-bottom: 5px;
+}
+
 .a-title {
-    font-size: 42px;
-    color: #383CC1;
+    font-size: 32px;
+    color: #4e2285;
 }
 
 .a-list {
-    font-size: 24px;
+    font-size: 18px;
+}
+
+@media screen and (max-width : 480px) {
+    .a {
+        flex-direction: column;
+        margin-top: 50px;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    .a-left {
+        width: 100%;
+    }
+
+    .a-text {
+        display: none;
+    }
+
+    .a-card {
+        height: 30vh;
+    }
+
+    .a-right {
+        padding: 20px;
+    }
 }

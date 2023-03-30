@@ -1,15 +1,26 @@
 .p {
-    width: 30%;
+    width: 20%;
     height: 40vh;
-    margin: 20px 10px;
-    border: 2px solid #dee2e6;
-    border-radius: 10px 10px 0px 0px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.p-card {
+    width: 100%;
+    height: 100%;
+    border: 2px solid black;
+    border-radius: 20px 0px 20px 0px;
     overflow: hidden;
+
 }
 
 .p-browser {
-    height: 20px;
+    height: 8%;
     background-color: #e6e6e6;
+    padding-left: 8px;
     display: flex;
     align-items: center;
     position: sticky;
@@ -31,4 +42,23 @@
 
 .p:hover .p-img {
     transform: translateY(-50%);
+}
+
+
+.p-name {
+    padding: 10px 0px;
+    font-size: 20px;
+    font-weight: 800;
+}
+
+@media screen and (max-width : 480px) {
+    .p {
+        width: 40%;
+        height: 25vh;
+    }
+
+    .p-name {
+        font-size: 18px;
+    }
+
 }

@@ -1,10 +1,19 @@
-import React, { useRef } from 'react'
+import React, { useContext, useRef, useState } from 'react'
 import './contact.css'
 import emailjs from '@emailjs/browser';
+import { ThemeContext } from '../../context';
 
 function Contact() {
 
     const formRef = useRef()
+    const [state, setState] = useState({ name: '', subject: '', email: "", message: "" });
+    function reset(e) {
+        e.preventDefault();
+        setState({ name: '', subject: '', email: "", message: "" });
+    }
+
+    const theme = useContext(ThemeContext)
+    const darkMode = theme.state.darkMode
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -45,13 +54,21 @@ function Contact() {
                         </div>
                     </div>
                     <div className="c-right">
-                        <div className="c-desc"><b>What do you think?</b><br />Share you views, ideas and start a discussion about anything worth mentioning.</div>
+                        <div className="c-desc"><span className='c-desc-head'>What do you think?</span><br />Share you views, ideas and start a discussion about anything worth mentioning.</div>
                         <form ref={formRef} onSubmit={handleSubmit}>
-                            <input id='name' type="text" placeholder='Name' name='user_name' />
-                            <input id='subject' type="text" placeholder='Subject' name='user_subject' />
-                            <input id='email' type="email" placeholder='Email' name='user_email' />
-                            <textarea name="message" rows="10" placeholder='Message'></textarea>
-                            <button  >Submit</button>
+                            <input style={{ backgroundColor: darkMode && 'black', color: darkMode && 'white' }} id='name' type="text" value={state.name} onChange={(e) => {
+                                setState({ ...state, name: e.target.value });
+                            }} placeholder='Name' name='user_name' />
+                            <input style={{ backgroundColor: darkMode && 'black', color: darkMode && 'white' }} id='subject' value={state.subject} onChange={(e) => {
+                                setState({ ...state, subject: e.target.value });
+                            }} type="text" placeholder='Subject' name='user_subject' />
+                            <input style={{ backgroundColor: darkMode && 'black', color: darkMode && 'white' }} id='email' value={state.email} onChange={(e) => {
+                                setState({ ...state, email: e.target.value });
+                            }} type="email" placeholder='Email' name='user_email' />
+                            <textarea style={{ backgroundColor: darkMode && 'black', color: darkMode && 'white' }} id='message' value={state.message} onChange={(e) => {
+                                setState({ ...state, message: e.target.value });
+                            }} name="message" rows="10" placeholder='Message'></textarea>
+                            <button className='c-button' onClick={reset}>Submit</button>
                         </form>
                     </div>
                 </div>
